@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import AnyHttpUrl, BaseSettings
 
 
@@ -11,7 +13,8 @@ class Config(BaseSettings):
     AZURE_API_KEY: str
     AZURE_API_ENDPOINT: str
     # Redis config
-    REDIS_URL: str = "redis://localhost:6379"
+    REDIS_HOST: str = "localhost:6379"
+    REDIS_PASSWORD: Optional[str] = None
 
     class Config:
         env_file = ".env"
