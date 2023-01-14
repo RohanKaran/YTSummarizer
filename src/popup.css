@@ -6,3 +6,7 @@
 div {
   margin: 1rem;
 }
+
+#spinner {
+  display: none;
+}

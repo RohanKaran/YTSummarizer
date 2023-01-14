@@ -10,13 +10,13 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
   </head>
   <body>
     <div class="main">
       <div>
         <img src="icon.png" alt="logo" style="width: 20%" />
-        <h1>YouTube Summarizer</h1>
+        <h1>YTSummarizer</h1>
       </div>
 
       <label>
@@ -52,10 +52,12 @@
           Summarize
         </button>
       </div>
-      <div id="result">
-        wpiheld peihldsbj qwgoeuksdb qwh awukwbdsa aehb aekfdbj. euofihdsfkj
-        kuej eufbdgkjd iuef iuaefb jdf ksdfb .
+      <div id="spinner">
+        <div class="spinner-border text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
+      <div id="result"></div>
     </div>
   </body>
 </html>

@@ -37,4 +37,5 @@ class YouTubeTranscriptService:
                 + " "
             )
         result = result.replace("  ", " ").strip()
+        print(result)
         return result
