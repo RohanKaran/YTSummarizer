@@ -1,3 +1,5 @@
 import aioredis
 
-redis = aioredis.from_url("redis://localhost:6379/0")
+from app.core import config
+
+redis = aioredis.from_url(config.REDIS_URL, decode_responses=True)

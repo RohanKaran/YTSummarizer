@@ -10,8 +10,8 @@ class Config(BaseSettings):
     # Azure config
     AZURE_API_KEY: str
     AZURE_API_ENDPOINT: str
-    # Environment mode
-    ENV: str = "PRODUCTION"
+    # Redis config
+    REDIS_URL: str = "redis://localhost:6379"
 
     class Config:
         env_file = ".env"
