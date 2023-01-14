@@ -2,8 +2,6 @@ import { ytsapi } from "./env/ytsapi.js";
 
 const yt_video_regex =
   /^https?:\/\/(www\.)?youtube\.com\/watch\?v=[a-zA-Z0-9_-]{11}(&[^#]*)?$/;
-let api = ytsapi + "/api/summarizer-abstractive/transcript";
-
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get the input element
@@ -21,8 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Attach the click event listener to the button
   summarize_button.addEventListener("click", function () {
     if (yt_video_regex.test(input_url.value)) {
-      if (document.querySelector('input[name="summary-type"]:checked').value === "1")
-  api = ytsapi + "/api/summarizer-extractive/transcript";
+      let api = ytsapi + "/api/summarizer-abstractive/transcript";
+      if (
+        document.querySelector('input[name="summary-type"]:checked').value ===
+        "1"
+      )
+        api = ytsapi + "/api/summarizer-extractive/transcript";
       // Get the current URL
       var url = new URL(input_url.value);
       var videoId = url.searchParams.get("v");
