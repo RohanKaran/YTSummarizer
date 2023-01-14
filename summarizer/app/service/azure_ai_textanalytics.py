@@ -1,3 +1,5 @@
+from math import sqrt
+
 from azure.ai.textanalytics import ExtractSummaryAction, TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
 from fastapi import HTTPException
@@ -14,9 +16,10 @@ class AzureAITextAnalytics:
 
     def extractive_summarization(self, text):
         try:
+            max_sentence_count = min(max(sqrt(len(text)), 1), 20)
             response = self.text_analytics_client.begin_analyze_actions(
                 documents=[text],
-                actions=[ExtractSummaryAction()],
+                actions=[ExtractSummaryAction(max_sentence_count=max_sentence_count)],
                 show_stats=True,
             ).result()
             for result in response:
