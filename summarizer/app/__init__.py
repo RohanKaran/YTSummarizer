@@ -9,10 +9,9 @@ from .endpoints import api
 def create_app():
 
     app = FastAPI(
-        title="TalkingMartHaystackAPI",
-        version="0.1.0",
-        description="API for TalkingMart QnA and Bot user Indexing",
-        debug=True,
+        title="YTSummarizer API",
+        version="1.0.0",
+        description="A simple API for summarizing YouTube videos"
     )
 
     register_extensions(app)
