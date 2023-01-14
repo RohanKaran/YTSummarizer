@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var url = new URL(input_url.value);
       var videoId = url.searchParams.get("v");
       spinner.style.display = "block";
-      result.innerHTML = "";
+      result.textContent = "";
       fetch(api + `/${videoId}/`, {
         method: "GET",
       })
@@ -40,18 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           spinner.style.display = "none";
           result.style.color = "black";
-          result.innerHTML = data.summary;
+          result.textContent = data.summary;
         })
         .catch((res) =>
           res.json().then((e) => {
             spinner.style.display = "none";
             result.style.color = "red";
-            result.innerHTML = e.detail;
+            result.textContent = e.detail;
           })
         );
     } else {
       result.style.color = "red";
-      result.innerHTML = "Invalid URL";
+      result.textContent = "Invalid URL";
     }
   });
 });
