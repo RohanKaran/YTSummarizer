@@ -5,16 +5,16 @@ const yt_video_regex =
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get the input element
-  var input_url = document.getElementById("yt-url");
-  var result = document.getElementById("result");
-  var spinner = document.getElementById("spinner");
+  const input_url = document.getElementById("yt-url");
+  const result = document.getElementById("result");
+  const spinner = document.getElementById("spinner");
   // Set the value of the input to the current URL
   browser.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     // Set the value of the input to the URL of the active tab
     if (yt_video_regex.test(tabs[0].url)) input_url.value = tabs[0].url;
   });
 
-  var summarize_button = document.getElementById("summarize");
+  const summarize_button = document.getElementById("summarize");
 
   // Attach the click event listener to the button
   summarize_button.addEventListener("click", function () {
@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
       )
         api = ytsapi + "/api/summarizer-extractive/transcript";
       // Get the current URL
-      var url = new URL(input_url.value);
-      var videoId = url.searchParams.get("v");
+      const url = new URL(input_url.value);
+      const videoId = url.searchParams.get("v");
       spinner.style.display = "block";
       result.textContent = "";
       fetch(api + `/${videoId}/`, {
