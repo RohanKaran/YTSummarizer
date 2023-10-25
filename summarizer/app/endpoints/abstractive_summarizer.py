@@ -2,10 +2,9 @@ from datetime import timedelta
 
 from app.core import redis
 from app.service.huggingface_inference import HuggingFaceInferenceService
+from app.service.talkdoc import TalkDocService
 from app.service.youtube_transcript import YouTubeTranscriptService
 from fastapi import APIRouter
-
-from summarizer.app.service.talkdoc import TalkDocService
 
 api: APIRouter = APIRouter()
 
