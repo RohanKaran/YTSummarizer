@@ -10,15 +10,19 @@ class TalkDocService:
             self.host,
             json={
                 "prompt": f"Generate a short summary of the following YouTube video:\n{text[:5000]}",
+                "text": text[:5000],
             },
         )
         return response.json()["summary"]
 
     def get_long_summary(self, text):
+        print("hi")
         response = requests.post(
             self.host,
             json={
                 "prompt": f"Generate a detailed summary of the following YouTube video:\n{text[:5000]}",
+                "text": text[:5000],
             },
         )
+        print(response.json())
         return response.json()["summary"]

@@ -19,7 +19,7 @@ async def summarize(yt_video_id: str):
 
     try:
         talkdoc_service = TalkDocService()
-        summary = talkdoc_service.get_short_summary(input_text)
+        summary = talkdoc_service.get_long_summary(input_text)
     except Exception as e:
         print(e)
         azure_ai_textanalytics = AzureAITextAnalytics()
